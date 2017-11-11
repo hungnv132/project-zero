@@ -1,8 +1,5 @@
+#!/usr/bin/env bash
 ENV="env"
-
-sudo apt-get install python-pip python-dev build-essential -y
-sudo apt-get install python3
-sudo pip install virtualenv
 
 if [ -d "$ENV" ]; then
     echo "[== ERROR ==]: Folder 'env' is existed."
@@ -10,11 +7,11 @@ if [ -d "$ENV" ]; then
     echo "*** 1. Remove 'env' and create a new"
     echo "*** 2. Exit."
 
-    read select
+    read choice
 
-    if [ $select == 2 ]; then
+    if [ $choice == 2 ]; then
         exit 1
-    elif [ $select == 1 ]; then
+    elif [ $choice == 1 ]; then
         sudo rm -r $ENV
     fi
 
