@@ -1,0 +1,18 @@
+
+table#result_list tr:hover{
+    background-color:#90EE90;
+}
+
+le#result_list > thead > tr > th {
+    text-align: right;
+}
+th.column-close_, th.column-change_, th.column-percent_ {
+    font-size: 12px;
+    color: black;
+}
+
+td.field-industry_, td.field-company_{
+    padding:0px;
+    vertical-align: middle;
+
+}
