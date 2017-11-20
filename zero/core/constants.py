@@ -29,3 +29,8 @@ AGREEMENT_XPATH = "//div[@id='content']//table[1]/tr[2]/td[11]/text()"
 FOREIGN_BUY_XPATH = "//div[@id='content']//table[1]/tr[2]/td[12]/text()"
 FOREIGN_SELL_XPATH = "//div[@id='content']//table[1]/tr[2]/td[13]/text()"
 
+# Article status
+ARTICLE_STATUS = (
+    (1, 'DRAFT'),
+    (2, 'PUBLISHED'),
+)
