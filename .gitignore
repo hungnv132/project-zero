@@ -1,3 +1,7 @@
 .idea/
 __pycache__/
 env/
+.vagrant/
+*.log
+*.sqlite3
+local.py
