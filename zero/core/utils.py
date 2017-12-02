@@ -52,5 +52,10 @@ def crawl_data(url=CRAWL_SOURCE, symbol=None):
 
     }
 
+
+def get_image_filename(filename):
+    now = datetime.now().strftime("%Y_%m_%d_%H_%M_%s")
+    return '{}_{}'.format(now, filename)
+
 if __name__ == '__main__':
     print(crawl_data(symbol='fsfsd'))
