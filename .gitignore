@@ -5,3 +5,5 @@ env/
 *.log
 *.sqlite3
 local.py
+package-lock.json
+node_modules/
