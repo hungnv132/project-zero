@@ -1,0 +1,30 @@
+{% extends '../base/base.html' %}
+
+{% load static %}
+
+{% block title %} Home Page {% endblock %}
+{% block content %}
+ <div class="row">
+     {% for post in posts %}
+        <div class="col-12 post-item">
+            <h3 class="post-title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+            <div class="post-user">đăng bởi <span class="name">{% firstof post.created_by.username 'admin' %}</span>, ngày {{ post.created_at|date:"d/m/Y" }}
+                {% if request.user.is_superuser %}
+                <a href="{% url 'admin:blog_post_change' post.id %}" class="post-tool" target="_blank"><span class="glyphicon glyphicon-edit"></span></a>
+                {% endif %}
+            </div>
+            <div class="row">
+                <a class="post-image col-lg-5" href="{{ post.get_absolute_url }}" style="background-image:url({{ MEDIA_URL }}/{{post.thumbnail }})"></a>
+                <div class="post-intro col-lg-7">
+                    {% autoescape off %}
+                        {% firstof post.intro|truncatewords_html:40 '' %}
+                    {% endautoescape %}
+
+                </div>
+            </div>
+        </div>
+     {% endfor %}
+
+ </div>
+{% endblock %}
+
