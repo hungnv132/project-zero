@@ -1,0 +1,146 @@
+$main-border-color: #e6e6e6;
+$focus-border-color: #bfbfbf;
+$link-color-normal: #009999;
+$link-color-hover: #008080;
+a {
+    color: #444;
+    text-decoration: none;
+    &:hover {
+        color: black;
+        text-decoration: none;
+    }
+}
+
+.row {
+    margin:0px;
+}
+
+
+header, footer {
+    height: 80px;
+    padding: 20px 0px;
+    margin-bottom:: 25px;
+    border-bottom: 1px solid $main-border-color;
+
+    .nav-link {
+        font-size: 18px;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+footer {
+    border: none;
+    border-top: 1px solid $main-border-color;
+
+    span.nav-link {
+        font-size: 16px;
+    }
+}
+
+#main {
+    .post-item {
+        border-bottom: 1px solid  $main-border-color;
+        padding-right: 15px;
+        padding-bottom: 15px;
+        margin-bottom:: 20px;
+
+        &:last-child {
+            border: none;
+        }
+    }
+    .post-title {
+        color: #404040;
+    }
+    .post-user {
+        font-style: italic;
+        font-size: 15px;
+        margin-bottom: 10px;
+        color: #b3b3b3;
+
+        .name {
+            color: #666666;
+        }
+        .post-tool {
+             color: #b3b3b3;
+             margin-left: 10px;
+             &:hover {
+                color: black;
+             }
+        }
+
+    }
+    .post-image {
+        height: 200px;
+        width: 300px;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        border: 1px solid red1;
+    }
+    .post-intro {
+        text-align: justify;
+
+        .detail-link {
+            font-size: 13px;
+            text-transform: uppercase;
+            color: green;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    .post-content {
+        font-family: "Time New Roman";
+        font-size: 18px;
+    }
+}
+
+#main > .row {
+    min-height: 800px;
+}
+
+#sidebar {
+   border: 1px solid red1;
+   padding: 0px;
+   padding: 0px 0px 15px 0px;;
+
+   .widget {
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        &:last-child {
+            border: none;
+        }
+        .search-box {
+            padding: 5px;
+            width: 100%;
+            border: 1px solid $main-border-color;
+            border-shadow: none;
+
+            &:focus {
+                box-shadow: none;
+                outline-style:none;
+                border: 1px solid $focus-border-color;
+            }
+        }
+
+        .header {
+            text-transform: uppercase;
+            font-size: 17px;
+            margin: 10px 0px;
+        }
+        .item {
+            margin-bottom: 10px;
+            font-size: 16px;
+
+            a {
+                color: $link-color-normal;
+                &:hover {
+                    color: $link-color-hover;
+                }
+            }
+        }
+   }
+}
