@@ -1,21 +1,35 @@
 from django.contrib import admin
-from blog.models import Category, Article
+from blog.forms import PostForm
+from blog.models import Post, Category
 
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    fields = ['name', 'description']
-
-
-@admin.register(Article)
-class ArticleAdmin(admin.ModelAdmin):
-    actions_on_top = True
-    actions_on_bottom = False
-    list_display = ['title', 'content', 'created_at', 'created_by']
-    readonly_fields = ['slug', 'created_at', 'modified_at']
+    list_display = ['title', 'created_at', 'created_by']
+    readonly_fields = ['slug', 'created_at', 'modified_at', 'created_by', 'modified_by']
     fieldsets = (
         (None, {
-            'fields': ('title', 'slug', ('category', 'status'), 'content')
+            'fields': (('title', 'slug'), )
+        }),
+        ('Tracking Time', {
+            'fields': (('created_at', 'modified_at'),)
+        }),
+        ('Tracking User', {
+            'fields': (('created_by', 'modified_by'),)
+        })
+    )
+
+
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    actions_on_top = True
+    actions_on_bottom = False
+    form = PostForm
+    list_display = ['id', 'category', 'title', 'status', 'created_at', 'created_by']
+    readonly_fields = ['slug', 'created_at', 'modified_at', 'created_by', 'modified_by']
+    fieldsets = (
+        (None, {
+            'fields': (('title', 'slug'),  'category', 'thumbnail', 'intro', 'content', 'status')
         }),
         ('Tracking Time', {
             'fields': (('created_at', 'modified_at'), )
@@ -30,4 +44,4 @@ class ArticleAdmin(admin.ModelAdmin):
             obj.modified_by = request.user
         else:
             obj.created_by = request.user
-        super(ArticleAdmin, self).save_model(request, obj, form, change)
+        super(PostAdmin, self).save_model(request, obj, form, change)
