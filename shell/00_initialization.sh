@@ -15,3 +15,7 @@ sudo pip install virtualenv
 
 # install mysql server
 sudo apt-get install -y mysql-server-5.7 mysql-client-5.7 libmysqlclient-dev
+
+# install nodejs
+curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+sudo apt-get install -y nodejs
