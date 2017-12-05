@@ -7,3 +7,5 @@ env/
 local.py
 package-lock.json
 node_modules/
+public/
+media/
