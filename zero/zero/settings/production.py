@@ -34,7 +34,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'zero_db',
         'USER': 'admin',
-        'PASSWORD': 'gacon132456',
+        'PASSWORD': 'Gacon13245678()',
         'HOST': '127.0.0.1',
         'PORT': 3306,
     }
