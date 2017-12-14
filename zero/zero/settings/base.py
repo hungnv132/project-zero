@@ -40,6 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'compressor',
+    'require',
+    'ckeditor',
+    'ckeditor_uploader',
+    'stock',
+    'blog'
 ]
 
 MIDDLEWARE = [
@@ -111,14 +117,15 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
+
+USE_L10N = False
+DATE_FORMAT = 'd/m/Y'
+DATETIME_FORMAT = 'd/m/Y H:i:s'
+TIME_ZONE = 'Asia/Ho_Chi_Minh'
 
 
 # Static files (CSS, JavaScript, Images)
@@ -132,3 +139,30 @@ ROOT_URL = '/public/'
 STATICFILES_DIRS = [
     os.path.abspath(os.path.join(BASE_DIR, 'static')),
 ]
+
+# settings compress css
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other finders..
+    'compressor.finders.CompressorFinder',
+)
+COMPRESS_ENABLED = True
+
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)
+
+# settings CKEditor
+
+CKEDITOR_IMAGE_BACKEND = 'pillow'
+CKEDITOR_RESTRICT_BY_DATE = False
+CKEDITOR_UPLOAD_PATH = 'blog/'
+CKEDITOR_FILENAME_GENERATOR = 'core.utils.get_image_filename'
+CKEDITOR_CONFIGS = {
+    'default': {
+        'height': 300,
+        'width': 1200,
+    },
+}
