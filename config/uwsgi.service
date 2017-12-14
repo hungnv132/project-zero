@@ -1,0 +1,16 @@
+[Unit]
+Description=uWSGI Server
+After=syslog.target
+
+[Service]
+ExecStart=/home/hungnv132/project-zero/env/bin/uwsgi --ini /home/hungnv132/project-zero/config/uwsgi_zero.ini
+# Requires systemd version 211 or newer
+RuntimeDirectory=uwsgi
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+StandardError=syslog
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target

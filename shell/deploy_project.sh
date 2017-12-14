@@ -4,4 +4,4 @@ git pull origin develop
 git pop
 
 sudo service nginx restart
-sudo service uwsgi restart
+sudo systemctl restart uwsgi.service
