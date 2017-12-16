@@ -14,7 +14,7 @@
                 {% endif %}
             </div>
             <div class="row">
-                <a class="post-image col-lg-5" href="{{ post.get_absolute_url }}" style="background-image:url({{ MEDIA_URL }}/{{post.thumbnail }})"></a>
+                <a class="post-image col-lg-5" href="{{ post.get_absolute_url }}" style="background-image:url({{ MEDIA_URL }}{{post.thumbnail }})"></a>
                 <div class="post-intro col-lg-7">
                     {% autoescape off %}
                         {% firstof post.intro|truncatewords_html:40 '' %}

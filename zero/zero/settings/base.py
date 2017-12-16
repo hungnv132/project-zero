@@ -130,11 +130,11 @@ TIME_ZONE = 'Asia/Ho_Chi_Minh'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-MEDIA_URL = '/media/'
+ROOT_URL = '/public/'
 STATIC_URL = '/static/'
 STATIC_ROOT = 'public/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'media'))
-ROOT_URL = '/public/'
 
 STATICFILES_DIRS = [
     os.path.abspath(os.path.join(BASE_DIR, 'static')),
