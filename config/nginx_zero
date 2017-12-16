@@ -1,7 +1,7 @@
 
 server {
     listen 80;
-    server_name 35.196.132.244 ;
+    server_name 35.196.170.40 ;
 
     location /static {
         alias /home/hungnv132/project-zero/zero/public;

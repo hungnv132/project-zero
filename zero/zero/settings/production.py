@@ -3,7 +3,7 @@ from .base import *
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', ]
+ALLOWED_HOSTS = ['localhost', '35.196.170.40' ]
 
 
 
@@ -27,8 +27,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'zero_db',
-        'USER': '',
-        'PASSWORD': '',
+        'USER': 'admin',
+        'PASSWORD': '123456',
         'HOST': '127.0.0.1',
         'PORT': 3306,
     }
