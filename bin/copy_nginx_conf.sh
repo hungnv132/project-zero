@@ -2,7 +2,7 @@
 
 sites_available=/etc/nginx/sites-available
 sites_enabled=/etc/nginx/sites-enabled
-project=/home/hungnv132/project-zero
+project=/home/ubuntu/project-zero
 
 sudo rm $sites_available/nginx_zero
 sudo rm $sites_enabled/nginx_zero

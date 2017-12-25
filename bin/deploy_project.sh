@@ -2,8 +2,8 @@ git stash
 git pull origin develop
 git stash pop
 
-source /home/hungnv132/project-zero/env/bin/activate
-cd /home/hungnv132/project-zero/zero
+source /home/ubuntu/project-zero/env/bin/activate
+cd /home/ubuntu/project-zero/zero
 export DJANGO_SETTINGS_MODULE="zero.settings.production"
 python manage.py collectstatic --noinput
 
