@@ -16,6 +16,25 @@ a {
 }
 
 
+.pagination .page-item.active a.page-link{
+    color: $link-color-normal;
+    background-color: white;
+    text-decoration: underline;
+    font-weight: bold;
+    border-color: #ddd;
+}
+
+.pagination .page-item {
+    a {
+        color: $link-color-normal;
+
+        &hover {
+            color: $link-color-hover;
+        }
+    }
+}
+
+
 header, footer {
     height: 80px;
     padding: 20px 0px;
@@ -41,10 +60,10 @@ footer {
 
 #main {
     .post-item {
-        border-bottom: 1px solid  $main-border-color;
+        border-bottom: 1px dashed $main-border-color;
         padding-right: 15px;
-        padding-bottom: 15px;
-        margin-bottom:: 20px;
+        padding-bottom: 20px;
+        margin-bottom:: 15px;
 
         &:last-child {
             border: none;
@@ -75,7 +94,7 @@ footer {
         height: 200px;
         width: 300px;
         background-repeat: no-repeat;
-        background-size: contain;
+        background-size: cover;
 
         border: 1px solid red1;
     }
