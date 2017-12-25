@@ -4,11 +4,11 @@ server {
     server_name 35.196.170.40 ;
 
     location /static {
-        alias /home/hungnv132/project-zero/zero/public;
+        alias /home/ubuntu/project-zero/zero/public;
     }
 
     location /media {
-        alias /home/hungnv132/project-zero/zero/media;
+        alias /home/ubuntu/project-zero/zero/media;
     }
 
     location / {

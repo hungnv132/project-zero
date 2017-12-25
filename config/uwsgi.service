@@ -3,7 +3,7 @@ Description=uWSGI Server
 After=syslog.target
 
 [Service]
-ExecStart=/home/hungnv132/project-zero/env/bin/uwsgi --ini /home/hungnv132/project-zero/config/uwsgi_zero.ini
+ExecStart=/home/ubuntu/project-zero/env/bin/uwsgi --ini /home/ubuntu/project-zero/config/uwsgi_zero.ini
 # Requires systemd version 211 or newer
 RuntimeDirectory=uwsgi
 Restart=always
