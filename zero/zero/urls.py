@@ -17,6 +17,20 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from core.admin.views import StockDailyView
+
+
+def get_custom_urls(urls):
+    def get_urls():
+        my_urls = [
+            url(r'^stock-daily/$',
+                view=admin.site.admin_view(StockDailyView.as_view()),
+                name='stock_daily')
+        ]
+        return my_urls + urls
+    return get_urls
+
+admin.site.get_urls = get_custom_urls(admin.site.get_urls())
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
