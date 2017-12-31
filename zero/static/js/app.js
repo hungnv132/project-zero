@@ -1,10 +1,7 @@
 
 requirejs.config({
     paths: {
-        jquery: 'jquery.min',
-        bootstrap: 'bootstrap.min',
+        jquery: 'jquery',
+        bootstrap: 'bootstrap',
     }
 })
-requirejs(['jquery'], function($){
-//    alert('hello')
-});
