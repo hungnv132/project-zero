@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'require',
     'ckeditor',
     'ckeditor_uploader',
+    'core',
     'stock',
     'blog'
 ]
