@@ -1,11 +1,8 @@
-from django.conf.urls import url, include
-from blog.views import Homepage, AboutMe, PostDetail
+from django.conf.urls import url
+from blog.views import PostListView, PostDetailView
 
 urlpatterns = [
-    url(r'^$', view=Homepage.as_view(), name='home_page'),
-    url(r'^page/(?P<page_number>[0-9]+)', view=Homepage.as_view(), name='home_page'),
-    url(r'^me.html$', view=AboutMe.as_view(), name='about_me'),
-    url(r'^(?P<slug>[0-9a-zA-Z\-_]+)-(?P<id>[0-9]+).html$', view=PostDetail.as_view(),
-        name='post_detail')
-
+    url(r'^$', view=PostListView.as_view(), name='post_list_view'),
+    url(r'^(?P<slug>[0-9a-zA-Z\-_]+)-(?P<id>[0-9]+).html$', view=PostDetailView.as_view(),
+        name='post_detail_view'),
 ]
