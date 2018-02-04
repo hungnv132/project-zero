@@ -35,7 +35,7 @@ admin.site.get_urls = get_custom_urls(admin.site.get_urls())
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-    url(r'', include('blog.urls')),
+    url(r'^', include('cms.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

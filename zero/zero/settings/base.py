@@ -44,12 +44,24 @@ INSTALLED_APPS = [
     'require',
     'ckeditor',
     'ckeditor_uploader',
+    'froala_editor',
     'core',
     'stock',
-    'blog'
+    'blog',
+    'taggit',
+
+    # django-cms
+    'django.contrib.sites',
+    'cms',
+    'menus',
+    'treebeard',
+    'sekizai',
+
+    # django-cms plugins
+    'djangocms_text_ckeditor',
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -57,6 +69,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # For django-cms
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'zero.urls'
@@ -75,7 +91,10 @@ TEMPLATES = [
                 'django.template.context_processors.media',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'core.context_processors.global_context'
+                'core.context_processors.global_context',
+                # For django-cms
+                'sekizai.context_processors.sekizai',
+                'cms.context_processors.cms_settings',
             ],
         },
     },
@@ -161,9 +180,53 @@ CKEDITOR_IMAGE_BACKEND = 'pillow'
 CKEDITOR_RESTRICT_BY_DATE = False
 CKEDITOR_UPLOAD_PATH = 'blog/'
 CKEDITOR_FILENAME_GENERATOR = 'core.utils.get_image_filename'
+
 CKEDITOR_CONFIGS = {
     'default': {
-        'height': 300,
+        'height': 500,
         'width': 1200,
-    },
+        'skin': 'moono',
+        'toolbar_Basic': [
+            ['Source', '-', 'Bold', 'Italic']
+        ],
+        'toolbar_MyCustomToolbarConfig': [
+            {'name': 'document', 'items': ['Source',  'Preview', 'Maximize']},
+            {'name': 'clipboard', 'items': ['Undo', 'Redo']},
+            {'name': 'editing', 'items': ['Find', 'Replace', '-', 'SelectAll']},
+            {'name': 'basicstyles',
+             'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat']},
+            {'name': 'paragraph',
+             'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
+                       'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl',
+                       'Language']},
+            {'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
+            {'name': 'insert',
+             'items': ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe']},
+            # '/',
+            {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
+            {'name': 'colors', 'items': ['TextColor', 'BGColor']},
+            {'name': 'tools', 'items': ['Maximize', 'ShowBlocks']},
+            # '/',  # put this to force next toolbar on new line
+        ],
+        'toolbar': 'MyCustomToolbarConfig',  # put selected toolbar config here
+        # 'toolbarGroups': [{ 'name': 'document', 'groups': [ 'mode', 'document', 'doctools' ] }],
+        # 'height': 291,
+        # 'width': '100%',
+        # 'filebrowserWindowHeight': 725,
+        # 'filebrowserWindowWidth': 940,
+        # 'toolbarCanCollapse': True,
+        # 'mathJaxLib': '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML',
+        'tabSpaces': 4,
+
+    }
 }
+# For django-cms
+SITE_ID = 1
+
+LANGUAGES = [
+    ('en-us', 'English'),
+]
+CMS_TEMPLATES = [
+    ('base/fullwidth.html', 'Page - Full width '),
+    ('base/sidebar_right.html', 'Page - Right Sidebar'),
+]
