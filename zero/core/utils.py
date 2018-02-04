@@ -57,5 +57,12 @@ def get_image_filename(filename):
     now = datetime.now().strftime("%Y_%m_%d_%H_%M_%s")
     return '{}_{}'.format(now, filename)
 
+
+def is_integer(input):
+    try:
+        int(input)
+        return True
+    except ValueError:
+        return False
 if __name__ == '__main__':
     print(crawl_data(symbol='fsfsd'))
