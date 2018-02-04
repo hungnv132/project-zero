@@ -29,7 +29,8 @@ class PostAdmin(admin.ModelAdmin):
     readonly_fields = ['slug', 'created_at', 'modified_at', 'created_by', 'modified_by']
     fieldsets = (
         (None, {
-            'fields': (('title', 'slug'),  'category', 'thumbnail', 'intro', 'content', 'status')
+            'fields': (('title', 'slug'),  'category', 'thumbnail', 'intro', 'content',
+                       'status', 'tags')
         }),
         ('Tracking Time', {
             'fields': (('created_at', 'modified_at'), )

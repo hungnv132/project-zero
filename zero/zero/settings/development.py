@@ -7,7 +7,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', ]
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'zero_db',
+        'NAME': 'cms_zero_db',
         'USER': 'admin',
         'PASSWORD': 'gacon132456',
         'HOST': '127.0.0.1',

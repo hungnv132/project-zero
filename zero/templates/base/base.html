@@ -1,33 +1,41 @@
-{% load static %}
-{% load compress %}
-
+{% load static compress cms_tags sekizai_tags menu_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>
-        {% block title %} Home Page {% endblock %}
+        {% block title %}
+            {% page_attribute "page_title" %}
+        {% endblock %} | Zero
     </title>
+    {% block meta_tags %}
+    <meta charset="UTF-8">
+    <meta name="author" content="Hung Ng Vi">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{% block meta_description%}Zero Going{% endblock %}">
+    <meta http-equiv="content-language" content="vi" />
+    {% endblock %}
+
     {% compress css %}
     <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}" />
     <link rel="stylesheet" type="text/css" href="{% static "css/glyphicons.css" %}" />
     <link rel="stylesheet" type="text/x-scss" href="{% static "css/app.scss" %}"/>
+    {% block 'stylesheet' %}{% endblock%}
     {% endcompress %}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <link rel="icon" href="{% static "images/favicon.png" type="image/png" %}"/>
+
+    {% render_block 'css' %}
 </head>
 <body>
-
+    {% cms_toolbar %}
     <header>
-        {% include 'base/header.html' %}
+        {% show_menu 0 1 100 100 %}
     </header>
+
     <div class="container">
         <div class="row">
-            <div id="main" class="col-lg-9 col-md-12">
-                {% block content %} Content Here{% endblock %}
-            </div>
-            <div id="sidebar" class="col-lg-3">
-                {% include 'base/sidebar.html' %}
-            </div>
+            {% block content %}
+            {% endblock %}
         </div>
     </div>
 
@@ -37,5 +45,15 @@
 
 </body>
 </html>
+{% render_block 'js' %}
 
-<script data-main="{% static 'js/app.js' %}" src="{% static 'js/require.js' %}"></script>
+<script src="{% static "js/jquery.js" %}"></script>
+<script src="{% static "js/bootstrap.js" %}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+  });
+});
+</script>

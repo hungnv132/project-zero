@@ -1,8 +1,10 @@
 from django.db import models
 from django.core.urlresolvers import reverse
-from core.models import TrackingTime, TrackingUser
 from slugify import slugify
+from cms.models.pluginmodel import CMSPlugin
+from core.models import TrackingTime, TrackingUser
 from core.constants import PAGE_STATUS
+from taggit.managers import TaggableManager
 
 
 class CommonModel(models.Model):
@@ -36,12 +38,18 @@ class Post(CommonModel, TrackingTime, TrackingUser):
                                  blank=True, null=True)
     thumbnail = models.ImageField(upload_to='thumbnail/%Y_%m_%d', blank=True, null=True)
 
+    tags = TaggableManager()
+
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('post_detail', args=(self.slug, self.id))
+        return reverse('blog:post_detail_view', args=(self.slug, self.id))
 
     class Meta:
         verbose_name = 'Post'
         verbose_name_plural = 'Posts'
+
+
+class RecentPosts(CMSPlugin):
+    recent_posts_number = models.SmallIntegerField(default=5)

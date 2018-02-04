@@ -1,0 +1,5 @@
+<div class="widget">
+    {% for post in recent_posts %}
+        <div class="item"><a href="{{ post.get_absolute_url }}">{{ post.title|truncatechars:66}}</a></div>
+    {% endfor %}
+</div>

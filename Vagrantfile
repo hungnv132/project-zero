@@ -6,6 +6,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/xenial64"
   config.vm.provision :shell, path: "bin/00_initialization.sh"
   config.vm.network :forwarded_port, guest: 8080, host: 8080
+  config.vm.network :forwarded_port, guest: 3306, host: 3308
   config.vm.provider "virtualbox" do |vb|
     vb.gui = false
     vb.memory = "2048"

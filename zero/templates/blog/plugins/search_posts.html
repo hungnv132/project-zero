@@ -1,0 +1,6 @@
+{% load cms_tags %}
+<div class="widget">
+    <form action="{% page_url request.current_page %}" method="GET">
+        <input class="search-box" type="text" name="q" placeholder="Tìm kiếm" />
+    </form>
+</div>

@@ -1,0 +1,6 @@
+{% load cms_tags %}
+<div class="widget popular-tags post-tags">
+    {% for tag in popular_tags %}
+        <a href="{% page_url request.current_page %}?tag={{ tag.slug }}"><span class="tag-name normal-tag">{{ tag.name }}</span></a>
+    {% endfor %}
+</div>
