@@ -4,6 +4,7 @@ env/
 .vagrant/
 *.log
 *.sqlite3
+*.pyc
 local.py
 package-lock.json
 node_modules/
