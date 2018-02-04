@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'require',
     'ckeditor',
     'ckeditor_uploader',
-    'froala_editor',
     'core',
     'stock',
     'blog',
