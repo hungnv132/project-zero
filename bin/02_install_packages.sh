@@ -1,4 +1,4 @@
-ENV="env"
+ENV_FOLDER="env"
 
-source ./$ENV/bin/activate
+source ./$ENV_FOLDER/bin/activate
 pip install -r requirements.txt

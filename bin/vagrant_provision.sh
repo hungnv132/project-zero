@@ -13,9 +13,6 @@ sudo apt-get install -y build-essential libssl-dev
 sudo apt-get install -y python3 python3-pip python-pip python3-dev
 sudo pip install virtualenv
 
-# install mysql server
-sudo apt-get install -y mysql-server-5.7 mysql-client-5.7 libmysqlclient-dev
-
 # install nodejs
 curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
 sudo apt-get install -y nodejs

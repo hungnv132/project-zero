@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-ENV="env"
+ENV_FOLDER="env"
 
-if [ -d "$ENV" ]; then
+if [ -d "$ENV_FOLDER" ]; then
     echo "[== ERROR ==]: Folder 'env' is existed."
     echo "***** Select below actions:"
     echo "*** 1. Remove 'env' and create a new"
@@ -12,12 +12,12 @@ if [ -d "$ENV" ]; then
     if [ $choice == 2 ]; then
         exit 1
     elif [ $choice == 1 ]; then
-        sudo rm -r $ENV
+        sudo rm -r $ENV_FOLDER
     fi
 
 fi
 
 PYTHON_PATH=$(which python3)
-virtualenv -p $PYTHON_PATH $ENV
+virtualenv -p $PYTHON_PATH $ENV_FOLDER
 
-echo "[== INFO ==]: Success!!!!"
+echo "[== INFO ==]: Created Virtual Envvironment 'env'!!!!"
