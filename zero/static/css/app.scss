@@ -2,6 +2,7 @@ $main-border-color: #e6e6e6;
 $focus-border-color: #bfbfbf;
 $link-color-normal: #009999;
 $link-color-hover: #008080;
+$main-font: "Noto Serif", "Times New Roman", serif;
 a {
     color: #444;
     text-decoration: none;
@@ -101,6 +102,7 @@ footer {
     .post-title {
         font-size: 32px;
         color: #404040;
+        text-transform: capitalize;
     }
     .post-user {
         font-style: italic;
@@ -131,6 +133,8 @@ footer {
     .post-intro {
         text-align: justify;
         font-size: 18px;
+        font-family: $main-font;
+        font-style: italic;
 
         .detail-link {
             font-size: 13px;
@@ -143,7 +147,7 @@ footer {
         }
     }
     .post-content {
-        font-family: "Noto Serif", "Times New Roman", serif;
+        font-family: $main-font;
         font-size: 20px;
     }
 }

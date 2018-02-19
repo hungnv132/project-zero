@@ -16,14 +16,10 @@
                     <a href="{% url 'admin:blog_post_change' post.id %}" class="post-tool" target="_blank"><span class="glyphicon glyphicon-edit"></span></a>
                     {% endif %}
                 </div>
-                <div class="row">
-                    <a class="post-image col-lg-5" href="{{ post.get_absolute_url }}" style="background-image:url({{ MEDIA_URL }}{{post.thumbnail }})"></a>
-                    <div class="post-intro col-lg-7">
-                        {% autoescape off %}
-                            {% firstof post.intro|truncatewords_html:40 '' %}
-                        {% endautoescape %}
-
-                    </div>
+                <div class="post-intro">
+                    {% autoescape off %}
+                        {% firstof post.intro|truncatewords_html:30 '' %}
+                    {% endautoescape %}
                 </div>
             </article>
         {% endfor %}
