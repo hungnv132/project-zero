@@ -145,6 +145,11 @@ footer {
                 text-decoration: underline;
             }
         }
+        p {
+            font-weight: bold;
+            font-size: 18px;
+            text-align: justify;
+        }
     }
     .post-content {
         font-family: $main-font;

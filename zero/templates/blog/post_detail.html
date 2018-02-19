@@ -12,6 +12,17 @@
         <a href="{% url 'admin:blog_post_change' post.id %}" class="post-tool" target="_blank"><span class="glyphicon glyphicon-edit"></span></a>
         {% endif %}
     </div>
+
+    {% if post.intro %}
+    <div class="post-intro">
+        <p>
+            {% autoescape off %}
+                {% firstof post.intro '' %}
+            {% endautoescape %}
+        </p>
+    </div>
+    {% endif %}
+
     <div class="post-content">
         {% autoescape off %}
             {% firstof post.content '' %}
