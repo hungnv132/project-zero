@@ -34,3 +34,4 @@ PAGE_STATUS = (
     (1, 'DRAFT'),
     (2, 'PUBLISHED'),
 )
+POSTS_PER_PAGE = 6

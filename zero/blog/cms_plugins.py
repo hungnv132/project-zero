@@ -2,12 +2,10 @@ from django.utils.translation import ugettext_lazy as _
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from cms.models.pluginmodel import CMSPlugin
-from taggit.models import Tag, TaggedItem
+from core.constants import POSTS_PER_PAGE
 from core.utils import is_integer
 from blog.models import RecentPosts
 from blog.services import find_posts, get_recent_posts, get_popular_tags
-
-POSTS_PER_PAGE = 3
 
 
 @plugin_pool.register_plugin
